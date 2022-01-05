@@ -4,13 +4,12 @@ public class Main {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-
         int choice;
         do {
             System.out.println("Menu:");
             System.out.println("1. Draw the triangle");
             System.out.println("2. Draw the square");
-            System.out.println("3. Draw the rectangle");
+            System.out.println("3. Draw the isosceles triangle");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -23,7 +22,7 @@ public class Main {
                     drawSquare();
                     break;
                 case 3:
-                    drawRectangle();
+                    drawIsoscelesTriangle();
                     break;
                 case 0:
                     break;
@@ -129,14 +128,18 @@ public class Main {
         }
     }
 
-    public static void drawRectangle() {
-        System.out.print("Enter rectangle's width: ");
-        int width = sc.nextInt();
-        System.out.print("Enter rectangle's height: ");
+    public static void drawIsoscelesTriangle() {
+        System.out.print("Enter triangle's height: ");
         int height = sc.nextInt();
 
         for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
+            for (int i = height-row; i > 0; i--) {
+                System.out.print("   ");
+            }
+            for (int j = -1; j < row; j++) {
+                System.out.print("*  ");
+            }
+            for (int k = 0; k <row; k++){
                 System.out.print("*  ");
             }
             System.out.print("\n");
